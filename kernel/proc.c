@@ -293,7 +293,10 @@ fork(void)
 
   pid = np->pid;
 
-  np->state = RUNNABLE;
+  np->state = RUNNABLE;  
+  
+  // for save the trace mask to new process
+  np->mask = p->mask;
 
   release(&np->lock);
 
